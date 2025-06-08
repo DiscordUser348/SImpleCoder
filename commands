@@ -1,0 +1,29 @@
+Here’s a list of commands that SimpleCoder currently supports:
+
+✅ System Commands
+shutdownPC → Instantly shuts down the computer.
+
+runProgram "<filename>" → Executes a specific program or script.
+
+deleteFile "<filename>" → Deletes the specified file.
+
+createFile="<filename>" "<content>" → Creates a new file with the given content.
+
+✅ Interactive Features
+changename "<new_name>" → Changes the username displayed in the prompt.
+
+say "<message>" → Prints the message with chaotic effects if ChaosMode is active.
+
+popupShow text="<message>" → Displays a pop-up window with custom text.
+
+sendNotification "<message>" → Sends a system notification.
+
+✅ Web & Fetching Commands
+fetch "<website_url>" → Retrieves raw text from the specified webpage.
+
+open "<website_url>" → Opens the given URL in the default web browser.
+
+✅ Chaos Mode Related
+CHAOSMODE=True → Activates ChaosMode, enabling randomized effects.
+
+CHAOSMODE=False → Deactivates ChaosMode, restoring normal behavior.
