@@ -1,0 +1,83 @@
+import os
+import requests
+import webbrowser
+import tkinter as tk
+import random
+import time
+import sys
+from tkinter import ttk
+from plyer import notification
+from colorama import init, Fore, Style
+
+init(autoreset=True)
+
+selected_language = "English"
+selected_keyboard = "QWERTY"
+user_name = "YourName"
+ai_mode = False
+chaos_mode = False
+
+ascii_art = [
+    "💥 BOOM 💥",
+    "🔥🔥🔥 CHAOS 🔥🔥🔥",
+    "💀 ERROR: Reality Not Found 💀",
+    "[!!!!] System Overload [!!!!]",
+    "⚡ UNSTABLE DIMENSION ⚡",
+    "🎭 Secret Mode Activated - Baron Was Here 🎭"  # Hidden reference 1
+]
+
+translations = {
+    "English": {
+        "welcome": "SimpleCoder\nCopyright (C) BaronCoder 2025\n\nInstall the latest SimpleCoder Updates at baryerby8.wixsite.com/SimpleCoderUpdates\n",
+        "help": "Type 'help' to see available commands.",
+        "exit_msg": "Exiting SimpleCoder...",
+        "prompt": "PS C:\\Users\\>{user_name}> "
+    },
+}
+
+def type_chaos_message(message):
+    for char in message:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(random.uniform(0.03, 0.12))
+    print()
+
+def baron_signature():  # Hidden reference 2
+    return "BaronCoder was here - You found the hidden message!"
+
+def execute_command(command):
+    global user_name, ai_mode, chaos_mode
+
+    if command.startswith("CHAOSMODE=True"):
+        chaos_mode = True
+        type_chaos_message("CHAOS MODE ACTIVATED!")
+        print("🔹 Fun fact: Baron coded this—yes, really!")  # Hidden reference 3
+
+    elif command.startswith("shutdownPC"):
+        os.system("shutdown /s /t 0")
+
+    elif command.startswith("deleteFile "):
+        filename = command.split('"')[1]
+        try:
+            os.remove(filename)
+            print(f"File {filename} deleted successfully.")
+        except FileNotFoundError:
+            print(f"Error: File {filename} not found.")
+
+    else:
+        print("Unknown command!")
+
+def launch_simplecoder():
+    global user_name
+    print(translations[selected_language]["welcome"])
+
+    while True:
+        prompt_text = translations[selected_language]["prompt"].format(user_name=user_name)
+        user_input = input(prompt_text)
+        
+        if user_input.lower() == "exit":
+            print(translations[selected_language]["exit_msg"])
+            break
+        execute_command(user_input)
+
+launch_simplecoder()
